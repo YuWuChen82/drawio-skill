@@ -2,24 +2,19 @@
 
 <div align="center">
 
-**[English](./README.md)** · **[中文](./README_zh.md)**
+**[English](README.md)** | 中文
 
 </div>
 
 ---
 
-<p align="center">
-  <img src="https://img.shields.io/badge/Claude%20Code-Skill-blue?style=flat-square" alt="Claude Code Skill">
-  <img src="https://img.shields.io/badge/draw.io-XML-brightgreen?style=flat-square" alt="draw.io">
-  <img src="https://img.shields.io/badge/diagrams-5%20种图表-orange?style=flat-square" alt="Diagram Types">
-  <img src="https://img.shields.io/badge/License-MIT-green?style=flat-square" alt="License">
-</p>
+## 安装
+
+下载后放入 `~/.claude/skills/drawio-skill/` 目录即可。
 
 ---
 
 ## 简介
-
-`drawio-skill` 根据自然语言描述生成 draw.io / diagrams.net 标准 `.drawio` XML 文件。
 
 **支持 5 种图表**，全部遵循**网格对齐**、**纯黑白配色**、**无背景画布**规范，输出结构清晰、线条不重叠。文件直接用 [draw.io](https://app.diagrams.net/) 打开编辑。
 
@@ -60,7 +55,7 @@ drawio-skill/
 
 ## 安装
 
-将本仓库设为 Claude Code 的 skills 目录，参考 [Claude Code 官方文档](https://docs.anthropic.com/en/docs/claude-code) 配置 skill 路径。
+下载后放入 `~/.claude/skills/drawio-skill/` 目录即可。
 
 ---
 

@@ -1,25 +1,28 @@
-# drawio-skill
-
 <div align="center">
 
-**[English](./README.md)** · **[中文](./README_zh.md)**
+English | **[中文](README_zh.md)**
 
 </div>
 
 ---
 
-<p align="center">
-  <img src="https://img.shields.io/badge/Claude%20Code-Skill-blue?style=flat-square" alt="Claude Code Skill">
-  <img src="https://img.shields.io/badge/draw.io-XML-brightgreen?style=flat-square" alt="draw.io">
-  <img src="https://img.shields.io/badge/diagrams-5%20types-orange?style=flat-square" alt="Diagram Types">
-  <img src="https://img.shields.io/badge/License-MIT-green?style=flat-square" alt="License">
-</p>
+<div align="center">
+
+```
+npx skills add {github_username}/drawio-skill
+```
+
+[![License: MIT](https://img.shields.io/badge/License-MIT-green?style=flat-square)](LICENSE)
+[![Claude Code Skill](https://img.shields.io/badge/Claude%20Code-Skill-blue?style=flat-square)](https://docs.anthropic.com/en/docs/claude-code)
+[![draw.io XML](https://img.shields.io/badge/draw.io-XML-brightgreen?style=flat-square)](https://app.diagrams.net/)
+
+</div>
 
 ---
 
 ## Overview
 
-`drawio-skill` generates standard `.drawio` / `diagrams.net` XML files from natural language descriptions.
+`drawio-skill` generates standard `.draw.io` / `diagrams.net` XML files from natural language descriptions.
 
 Supports **5 diagram types** with **grid-aligned layouts**, **pure black-and-white styling**, and **transparent canvas** (no gray/white page background). Output is clean, non-overlapping, and ready to open in [draw.io](https://app.diagrams.net/).
 
@@ -60,7 +63,7 @@ drawio-skill/
 
 ## Install
 
-Set this repo as your Claude Code skills directory. See [Claude Code official docs](https://docs.anthropic.com/en/docs/claude-code) for skill path configuration.
+After downloading, place in `~/.claude/skills/drawio-skill/`.
 
 ---
 
