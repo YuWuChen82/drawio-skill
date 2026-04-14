@@ -10,7 +10,7 @@
 
 ## 安装
 
-下载后放入 `~/.claude/skills/drawio-skill/` 目录即可。
+下载后放入 `~/.claude/skills/` 目录即可。
 
 ---
 

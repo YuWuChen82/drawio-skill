@@ -63,7 +63,7 @@ drawio-skill/
 
 ## Install
 
-After downloading, place in `~/.claude/skills/drawio-skill/`.
+After downloading, place in `~/.claude/skills/`.
 
 ---
 
