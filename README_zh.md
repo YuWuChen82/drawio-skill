@@ -103,7 +103,6 @@ drawio-skill/
 | **背景** | 纯透明（`page="0"`，无灰色/白色页面） |
 | **配色** | 纯黑白（`#000/#333/#555/#888/#ccc/#fff`），禁止彩色 |
 | **网格** | `gridSize="10"`，所有坐标为 10 的倍数 |
-| **图例** | 每个图右下角必须包含图例 |
 
 ---
 
@@ -115,7 +114,6 @@ drawio-skill/
 L1 基础表（左上）→ L2 业务表（居中）→ L3 明细表（右/下行）→ L4 配置表（右下）
 实线+乌鸦脚 = 1:N      虚线 = 自关联
 多模块：模块之间留白 ≥300px，跨模块 include（必选）虚线箭头，extend（可选）虚线三角
-图例固定在右下角
 ```
 
 ### 用例图 — 角色-用例分层
@@ -150,7 +148,7 @@ Actor → 边界/接口 → 控制/服务 → 实体/仓库 → 外部系统
 bash scripts/validate_drawio.sh output.drawio
 ```
 
-检查项：XML 结构完整性、图表类型识别、mxCell 标签闭合、网格对齐、图例存在性、xmllint 深度验证。
+检查项：XML 结构完整性、图表类型识别、mxCell 标签闭合、网格对齐、xmllint 深度验证。
 
 ---
 
@@ -161,7 +159,7 @@ bash scripts/validate_drawio.sh output.drawio
 - 各元素的 mxCell / mxGeometry 结构
 - 关系线样式：`endArrow=ERmany` / `endArrow=classic` / `endArrow=open` / `dashed=1`
 - ER 图 include（`dashed=1 + endArrow=open + <<include>>`）和 extend（`dashed=1 + endArrow=classic + <<extend>>`）的完整 XML 示例
-- ID 命名规范：`t1,t2`（表）、`act1,act2`（Actor）、`uc1,uc2`（用例）、`leg1`（图例）
+- ID 命名规范：`t1,t2`（表）、`act1,act2`（Actor）、`uc1,uc2`（用例）
 
 ---
 

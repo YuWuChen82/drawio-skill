@@ -1,27 +1,9 @@
 <mxfile host="app.diagrams.net">
   <diagram name="ER Diagram" id="er-diagram">
-    <mxGraphModel dx="1200" dy="800" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" math="0" shadow="0">
+    <mxGraphModel dx="1200" dy="800" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" math="0" shadow="0">
       <root>
         <mxCell id="0"/>
         <mxCell id="1" parent="0"/>
-
-        
-        
-
-        
-        
-
-        
-        <mxCell id="leg1" value="Legend" style="shape=table;startSize=30;container=1;collapsible=0;childLayout=tableLayout;fixedRows=1;rowLines=0;fontStyle=1;align=left;verticalAlign=top;fillColor=#fff;strokeColor=#ccc;fontColor=#333;" vertex="1" parent="1">
-          <mxGeometry x="1140" y="40" width="200" height="130" as="geometry"/>
-        </mxCell>
-        <mxCell value="" style="shape=partialRectangle;html=1;whiteSpace=wrap;collapsible=0;fixedRows=1;rowLines=0;fontStyle=1;align=left;verticalAlign=top;" vertex="1" parent="leg1">
-          <mxGeometry y="30" width="200" height="30" as="geometry"/>
-        </mxCell>
-        <mxCell value="PK = Primary Key&#xa;FK = Foreign Key&#xa;UK = Unique Key&#xa;────── solid = one-to-many&#xa;- - - - dashed = self-reference" style="shape=partialRectangle;html=1;whiteSpace=wrap;collapsible=0;fixedRows=1;rowLines=0;fontStyle=0;align=left;verticalAlign=top;spacingLeft=8;fontSize=10;fontColor=#666;" vertex="1" parent="leg1">
-          <mxGeometry y="60" width="200" height="70" as="geometry"/>
-        </mxCell>
-
       </root>
     </mxGraphModel>
   </diagram>

@@ -108,7 +108,6 @@ Open in draw.io: **File → Open → select the `.drawio` file**
 | **Background** | Pure transparent (`page="0"`, no gray/white page) |
 | **Colors** | Black & white only (`#000/#333/#555/#888/#ccc/#fff`), no color |
 | **Grid** | `gridSize="10"`, all coordinates multiples of 10 |
-| **Legend** | Required in bottom-right corner of every diagram |
 
 ---
 
@@ -120,7 +119,6 @@ Open in draw.io: **File → Open → select the `.drawio` file**
 L1 Base tables (top-left) → L2 Business tables (center) → L3 Detail tables (right/below) → L4 Config tables (bottom-right)
 Solid + crow's foot = 1:N     Dashed = self-reference
 Multi-module: ≥300px gap between modules; include (mandatory) dashed arrow, extend (optional) dashed triangle
-Legend fixed at bottom-right
 ```
 
 ### Use Case Diagram — Actor-UseCase Layers
@@ -155,7 +153,7 @@ Ellipse      = Start/End    Solid arrow = Flow
 bash scripts/validate_drawio.sh output.drawio
 ```
 
-Checks: XML structure integrity, diagram type detection, mxCell tag balance, grid alignment, legend presence, xmllint deep validation.
+Checks: XML structure integrity, diagram type detection, mxCell tag balance, grid alignment, xmllint deep validation.
 
 ---
 
@@ -166,7 +164,7 @@ Full XML format specs are in `references/drawio_xml_format.md`, including:
 - mxCell / mxGeometry structure for every element type
 - Edge styles: `endArrow=ERmany` / `endArrow=classic` / `endArrow=open` / `dashed=1`
 - Complete XML examples for ER Diagram include (`dashed=1 + endArrow=open + <<include>>`) and extend (`dashed=1 + endArrow=classic + <<extend>>`)
-- ID naming convention: `t1,t2` (tables), `act1,act2` (actors), `uc1,uc2` (usecases), `leg1` (legend)
+- ID naming convention: `t1,t2` (tables), `act1,act2` (actors), `uc1,uc2` (usecases)
 
 ---
 

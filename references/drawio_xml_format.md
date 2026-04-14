@@ -843,39 +843,7 @@ Extend UC 与基UC垂直相邻：
 
 **禁止：** 继承线斜向；依赖线穿过类框；同一继承树内子类之间有连线
 
----
-
-## VI. 图例模板（按内容自动扩展）
-
-```xml
-<mxCell id="leg1" value="Legend" style="
-  shape=table;startSize=30;container=1;collapsible=0;
-  childLayout=tableLayout;fixedRows=1;rowLines=0;
-  fontStyle=1;align=left;verticalAlign=top;
-  fillColor=#fff;strokeColor=#ccc;fontColor=#333;
-" vertex="1" parent="1">
-  <mxGeometry x="1140" y="40"
-    width="200"
-    height="{30 + 图例内容行数×20}"
-    as="geometry"/>
-</mxCell>
-<mxCell value="" style="
-  shape=partialRectangle;html=1;whiteSpace=wrap;collapsible=0;
-  fixedRows=1;rowLines=0;fontStyle=1;align=left;verticalAlign=top;
-" vertex="1" parent="leg1">
-  <mxGeometry y="30" width="200" height="30" as="geometry"/>
-</mxCell>
-<mxCell value="───── solid = direct association / generalization&#xa;- - - dashed = dependency / extend / return&#xa;◀──── triangle = inheritance / generalization&#xa;──◁── diamond = aggregation / composition&#xa;──▶   crow's foot = one-to-many" style="
-  shape=partialRectangle;html=1;whiteSpace=wrap;collapsible=0;
-  fixedRows=1;rowLines=0;fontStyle=0;align=left;verticalAlign=top;spacingLeft=8;fontSize=10;fontColor=#666;
-" vertex="1" parent="leg1">
-  <mxGeometry y="60" width="200"
-    height="{图例内容行数×20}"
-    as="geometry"/>
-</mxCell>
 ```
-
-> 图例宽度固定200（可容纳最宽行），高度由行数决定：`30 + 行数×20`。
 
 ---
 
@@ -887,7 +855,6 @@ Extend UC 与基UC垂直相邻：
 用例:        uc1, uc2, uc3
 对象:        obj1, obj2, obj3
 连线:        rel1, rel2, rel3 ...
-图例:        leg1
 系统框:      sys1
 嵌套矩形:    nest1, nest2
 ```
@@ -918,4 +885,3 @@ Extend UC 与基UC垂直相邻：
 | 判断菱形 | 120 | 80 | 按文本长度 | 按文本长度 |
 | 开始/结束椭圆 | 最小按文本 | 40 | 按文本长度 | 固定40 |
 | 类框 | 160 | `30 + n×18` | 按最长行 | 按属性+方法行数 |
-| 图例 | 200 | `30 + n×20` | 固定200 | 按行数 |

@@ -89,20 +89,13 @@ case "$DIAGRAM_TYPE" in
     ;;
 esac
 
-# 6. Legend check
-if grep -q 'Legend' "$FILE"; then
-  echo "PASS  Legend present"
-else
-  echo "WARN  No legend detected"
-fi
-
-# 7. mxCell tag balance
+# 6. mxCell tag balance
 OPEN=$(grep -o '<mxCell' "$FILE" | wc -l)
 CLOSE=$(grep -o '</mxCell>' "$FILE" | wc -l)
 echo "INFO  mxCell: open=$OPEN, close=$CLOSE"
 [ "$OPEN" -ne "$CLOSE" ] && echo "WARN  mxCell tag count mismatch"
 
-# 8. Grid alignment (coordinates multiples of 10)
+# 7. Grid alignment
 MISALIGNED=$(grep '<mxGeometry' "$FILE" | grep -Ev '(x|y|width|height)="[0-9]+0"' | head -3)
 if [ -n "$MISALIGNED" ]; then
   echo "WARN  Non-10-multiple coordinates found, may not align to grid"
@@ -110,7 +103,7 @@ else
   echo "PASS  All coordinates grid-aligned"
 fi
 
-# 9. xmllint deep validation (if available)
+# 8. xmllint deep validation
 if command -v xmllint &> /dev/null; then
   echo ""
   echo "Running xmllint validation..."
