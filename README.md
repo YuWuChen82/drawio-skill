@@ -89,10 +89,12 @@ Draw a loan approval flowchart: Start → Review → Decision → Approve → En
 
 ## Generated Output
 
-Files are written to the **current project root directory** (not the user home folder):
+Files are written to the **current project root directory**, numbered sequentially — old files are never overwritten:
 
 ```
-{project_root}/{filename}.drawio
+{project_root}/{scenario}_{diagram_type}_001.drawio
+{project_root}/{scenario}_{diagram_type}_002.drawio
+{project_root}/{scenario}_{diagram_type}_003.drawio
 ```
 
 Open in draw.io: **File → Open → select the `.drawio` file**
