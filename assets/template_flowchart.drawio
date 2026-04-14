@@ -1,0 +1,91 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="Flowchart" id="flowchart">
+    <mxGraphModel dx="1200" dy="800" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1600" pageHeight="1200" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+
+        <!-- ========== Start/End Node (ellipse) ========== -->
+        <!--
+        <mxCell value="Start" style="
+          shape=ellipse;html=1;whiteSpace=wrap;
+          fillColor=#4CAF50;strokeColor=#2E7D32;strokeWidth=2;
+          align=center;verticalAlign=middle;
+          fontSize=12;fontColor=#fff;fontStyle=1;
+        " vertex="1" parent="1">
+          <mxGeometry x="200" y="40" width="80" height="50" as="geometry"/>
+        </mxCell>
+        -->
+
+        <!-- ========== Activity Node (rounded rect) ========== -->
+        <!--
+        <mxCell value="Process Step" style="
+          shape=rounded;rounded=1;html=1;whiteSpace=wrap;
+          fillColor=#fff;strokeColor=#333;strokeWidth=1.5;
+          align=center;verticalAlign=middle;fontSize=12;
+        " vertex="1" parent="1">
+          <mxGeometry x="160" y="120" width="160" height="60" as="geometry"/>
+        </mxCell>
+        -->
+
+        <!-- ========== Decision Node (rhombus) ========== -->
+        <!--
+        <mxCell value="Passed?" style="
+          shape=rhombus;html=1;whiteSpace=wrap;
+          fillColor=#FFF9C4;strokeColor=#F57F17;strokeWidth=1.5;
+          align=center;verticalAlign=middle;fontSize=11;
+        " vertex="1" parent="1">
+          <mxGeometry x="160" y="320" width="160" height="80" as="geometry"/>
+        </mxCell>
+        -->
+
+        <!-- ========== Input/Output Node (parallelogram) ========== -->
+        <!--
+        <mxCell value="Input Data" style="
+          shape=parallelogram;html=1;whiteSpace=wrap;
+          fillColor=#E3F2FD;strokeColor=#1565C0;strokeWidth=1.5;
+          align=center;verticalAlign=middle;fontSize=11;
+        " vertex="1" parent="1">
+          <mxGeometry x="160" y="200" width="160" height="50" as="geometry"/>
+        </mxCell>
+        -->
+
+        <!-- ========== End Node (filled circle) ========== -->
+        <!--
+        <mxCell value="" style="
+          shape=ellipse;html=1;whiteSpace=wrap;
+          fillColor=#f44336;strokeColor=#c62828;strokeWidth=2;
+        " vertex="1" parent="1">
+          <mxGeometry x="180" y="600" width="40" height="40" as="geometry"/>
+        </mxCell>
+        -->
+
+        <!-- ========== Connector Arrows ========== -->
+        <!--
+        <mxCell value="Yes" style="
+          endArrow=classic;html=1;strokeWidth=1.5;strokeColor=#333;
+        " edge="1" parent="1" source="dec1" target="act_yes">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell value="No" style="
+          endArrow=classic;html=1;strokeWidth=1.5;strokeColor=#333;
+        " edge="1" parent="1" source="dec1" target="act_no">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        -->
+
+        <!-- ========== Legend ========== -->
+        <mxCell id="leg1" value="Legend" style="shape=table;startSize=30;container=1;collapsible=0;childLayout=tableLayout;fixedRows=1;rowLines=0;fontStyle=1;align=left;verticalAlign=top;fillColor=#fafafa;strokeColor=#ddd;fontColor=#444;" vertex="1" parent="1">
+          <mxGeometry x="1140" y="40" width="200" height="130" as="geometry"/>
+        </mxCell>
+        <mxCell value="" style="shape=partialRectangle;html=1;whiteSpace=wrap;collapsible=0;fixedRows=1;rowLines=0;fontStyle=1;align=left;verticalAlign=top;" vertex="1" parent="leg1">
+          <mxGeometry y="30" width="200" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell value="green ellipse = Start / End&#xa;white rounded rect = Activity&#xa;yellow rhombus = Decision&#xa;blue parallelogram = Input/Output&#xa;arrow = flow direction" style="shape=partialRectangle;html=1;whiteSpace=wrap;collapsible=0;fixedRows=1;rowLines=0;fontStyle=0;align=left;verticalAlign=top;spacingLeft=8;fontSize=10;fontColor=#666;" vertex="1" parent="leg1">
+          <mxGeometry y="60" width="200" height="70" as="geometry"/>
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
