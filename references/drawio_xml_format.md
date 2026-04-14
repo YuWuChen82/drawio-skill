@@ -275,15 +275,15 @@ L1 ───────────▶ L2 ───────────▶ 
 
 ### 1.5 多模块 ER 图 include / extend 关系（必须含标签文字）
 
-> 多模块 ER 图中，跨模块的引用依赖必须用 `<<include>>` 标签；子类表对基类表用 `<<extend>>` 标签。**标签文字不可省略**，否则无法区分 include/extend 与普通 1:N 关系。
+> 多模块 ER 图中，跨模块的引用依赖必须用 `<include>` 标签；子类表对基类表用 `<extend>` 标签。**标签文字不可省略**，否则无法区分 include/extend 与普通 1:N 关系。
 
 > **⚠️ 常见错误：标签写成独立 vertex 节点（draw.io 不识别）**
-> 错误写法：创建单独的 `<mxCell value="&#171;include&#187;" vertex="1" ...>` 作为文本框，与连线分离。
+> 错误写法：创建单独的 `<mxCell value="&lt;include&gt;" vertex="1" ...>` 作为文本框，与连线分离。
 > 正确写法：标签写在 **edge 连线本身**的 `value` 属性中，用 `edgeLabel` 样式标记。连线上的标签随线移动，独立节点不会跟随。
 
 **Include 关系（必选，跨模块引用）：**
 ```xml
-<mxCell value="&#171;include&#187;" style="
+<mxCell value="&lt;include&gt;" style="
   edgeStyle=entityRelationEdgeStyle;rounded=0;
   dashed=1;dashPattern=8 4;
   endArrow=open;endFill=0;html=1;strokeWidth=1.5;strokeColor=#555;
@@ -294,12 +294,12 @@ L1 ───────────▶ L2 ───────────▶ 
 ```
 - `dashed=1` + `dashPattern=8 4`：虚线样式
 - `endArrow=open`：开放箭头（不含填充）
-- `&#171;include&#187;` = UML 标签文字 `<<include>>`
+- `&lt;include&gt;` = UML 标签文字 `<include>`
 - `fontStyle=2`：斜体（UML 惯例）
 
 **Extend 关系（可选，泛化/特例）：**
 ```xml
-<mxCell value="&#171;extend&#187;" style="
+<mxCell value="&lt;extend&gt;" style="
   edgeStyle=entityRelationEdgeStyle;rounded=0;
   dashed=1;dashPattern=8 4;
   endArrow=classic;endFill=0;html=1;strokeWidth=1.5;strokeColor=#555;
@@ -309,16 +309,16 @@ L1 ───────────▶ L2 ───────────▶ 
 </mxCell>
 ```
 - `endArrow=classic`：实心三角箭头（表示泛化方向）
-- `&#171;extend&#187;` = UML 标签文字 `<<extend>>`
+- `&lt;extend&gt;` = UML 标签文字 `<extend>`
 - 箭头方向：子类 → 基类
 
 **Include vs Extend 区别：**
 ```
-Include（引用依赖）：虚线 + 空心箭头 + <<include>>
+Include（引用依赖）：虚线 + 空心箭头 + <include>
   模块A: Order ──▶ User（订单引用用户的user_id）
   方向：引用方 → 被引用方
 
-Extend（泛化特例）：虚线 + 实心三角 + <<extend>>
+Extend（泛化特例）：虚线 + 实心三角 + <extend>
   DiscountOrder ──▶ Order（优惠订单是订单的特例）
   方向：子类 → 基类
 ```
@@ -378,7 +378,7 @@ Extend（泛化特例）：虚线 + 实心三角 + <<extend>>
 
 **Include（虚线 + open箭头）：**
 ```xml
-<mxCell value="&#xa;&#xa;&#171;include&#187;" style="
+<mxCell value="&#xa;&#xa;&lt;include&gt;" style="
   endArrow=open;dashed=1;html=1;strokeWidth=1.5;strokeColor=#555;
   edgeLabel;align=center;verticalAlign=top;fontSize=10;fontColor=#888;fontStyle=2;
 " edge="1" parent="1" source="uc1" target="uc2">
@@ -386,7 +386,7 @@ Extend（泛化特例）：虚线 + 实心三角 + <<extend>>
 </mxCell>
 ```
 
-**Extend：** 同 include，仅标签改为 `&#171;extend&#187;`
+**Extend：** 同 include，仅标签改为 `&lt;extend&gt;`
 
 **泛化：** 改 `endArrow=classic`
 

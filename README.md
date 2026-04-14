@@ -163,7 +163,7 @@ Full XML format specs are in `references/drawio_xml_format.md`, including:
 
 - mxCell / mxGeometry structure for every element type
 - Edge styles: `endArrow=ERmany` / `endArrow=classic` / `endArrow=open` / `dashed=1`
-- Complete XML examples for ER Diagram include (`dashed=1 + endArrow=open + <<include>>`) and extend (`dashed=1 + endArrow=classic + <<extend>>`)
+- Complete XML examples for ER Diagram include (`dashed=1 + endArrow=open + <include>`) and extend (`dashed=1 + endArrow=classic + <extend>`)
 - ID naming convention: `t1,t2` (tables), `act1,act2` (actors), `uc1,uc2` (usecases)
 
 ---

@@ -158,7 +158,7 @@ bash scripts/validate_drawio.sh output.drawio
 
 - 各元素的 mxCell / mxGeometry 结构
 - 关系线样式：`endArrow=ERmany` / `endArrow=classic` / `endArrow=open` / `dashed=1`
-- ER 图 include（`dashed=1 + endArrow=open + <<include>>`）和 extend（`dashed=1 + endArrow=classic + <<extend>>`）的完整 XML 示例
+- ER 图 include（`dashed=1 + endArrow=open + <include>`）和 extend（`dashed=1 + endArrow=classic + <extend>`）的完整 XML 示例
 - ID 命名规范：`t1,t2`（表）、`act1,act2`（Actor）、`uc1,uc2`（用例）
 
 ---
