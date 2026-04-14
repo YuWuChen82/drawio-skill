@@ -1,0 +1,17 @@
+[
+  {
+    "id": 1,
+    "prompt": "帮我画一个电商系统的 ER 图，包含用户表（user_id, username, email）、订单表（order_id, user_id, total_amount, created_at）和商品表（product_id, name, price），用户和订单是一对多，订单和商品是多对多",
+    "expected": "生成符合规格的 ER 图 XML，包含 User/Order/Product 三表，关系线标注正确，布局合理（用户表左上、商品表右上、订单表居中），图例完整，无线段交叉，画布尺寸适中"
+  },
+  {
+    "id": 2,
+    "prompt": "画一个用户登录的用例图，系统是电商平台，有顾客、管理员两个角色，顾客可以浏览商品、下单、管理收货地址，管理员可以管理商品和用户",
+    "expected": "生成符合规格的用例图 XML，Actor 在左侧（顾客、管理员），System Boundary 框居中，UseCase 椭圆形在右侧，内容不超出边界，Actor 与 UseCase 之间有连线，无交叉，底部右下角有图例"
+  },
+  {
+    "id": 3,
+    "prompt": "生成一个订单处理流程图：开始 → 验证订单 → 库存是否充足？→ 不足则通知用户 → 充足则扣减库存 → 生成发货单 → 结束",
+    "expected": "生成符合规格的流程图 XML，Start（椭圆绿）、Activity（圆角矩形）、Decision（菱形黄）、End（椭圆红），连线为实线箭头，分支有 Yes/No 标注，布局从左到右或从上到下，无交叉不拥挤"
+  }
+]
