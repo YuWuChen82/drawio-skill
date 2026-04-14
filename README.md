@@ -1,12 +1,10 @@
 # drawio-skill
 
-<!--lang-switcher-->
 <div align="center">
 
 **[English](./README.md)** · **[中文](./README_zh.md)**
 
 </div>
-<!--/lang-switcher-->
 
 ---
 
@@ -21,21 +19,21 @@
 
 ## Overview
 
-`drawio-skill` is a Claude Code Agent Skill that generates standard `.drawio` / `diagrams.net` XML files from natural language descriptions. It supports **5 diagram types** with **consistent grid-aligned layouts** and **standardized edge/arrow styles**.
+`drawio-skill` generates standard `.drawio` / `diagrams.net` XML files from natural language descriptions.
 
-Instead of outputting a flat file, the generated `.drawio` can be opened directly in [draw.io](https://app.diagrams.net/) or [diagrams.net](https://www.diagrams.net/) for further editing.
+Supports **5 diagram types** with **grid-aligned layouts**, **pure black-and-white styling**, and **transparent canvas** (no gray/white page background). Output is clean, non-overlapping, and ready to open in [draw.io](https://app.diagrams.net/).
 
 ---
 
 ## Supported Diagram Types
 
-| Type | Description |
-|------|-------------|
-| **ER Diagram** | Database entity-relationship diagrams with table containers, field rows, and relation edges |
-| **Use Case Diagram** | UML use case diagrams with Actors, System boundary, UseCases, include/extend/generalization edges |
-| **Sequence Diagram** | UML sequence diagrams with object boxes, lifelines, and sync/async/return messages |
-| **Flowchart / BPMN** | Business process diagrams with start/end nodes, activities, decisions, and flow arrows |
-| **Class Diagram** | UML class diagrams with 3-section boxes (name / attributes / methods) |
+| Type | Core Elements |
+|------|--------------|
+| **ER Diagram** | Table containers + field rows + relation edges; multi-module includes include/extend cross-module edges |
+| **Use Case Diagram** | Stick-figure Actors + System boundary box + UseCase ellipses + include/extend/generalization edges |
+| **Sequence Diagram** | Object boxes + lifelines + sync/async/return message arrows (BCE architecture) |
+| **Flowchart** | Rounded-rectangle activities + diamond decisions + ellipse start/end + Yes/No branches |
+| **Class Diagram** | 3-section class boxes + inheritance/aggregation/dependency edges |
 
 ---
 
@@ -43,27 +41,24 @@ Instead of outputting a flat file, the generated `.drawio` can be opened directl
 
 ```
 drawio-skill/
-├── SKILL.md                                  # Main agent instructions (English)
-├── README.md                                 # This file
-├── README_zh.md                             # Chinese version
-├── .gitignore
+├── SKILL.md                         # Main agent instructions
+├── README.md                         # This file
+├── README_zh.md                     # Chinese version
 ├── references/
-│   ├── drawio_xml_format.md                  # draw.io XML format specification
-│   └── diagram_content_standards.md           # Content & layout standards
+│   ├── drawio_xml_format.md         # XML format spec (complete templates per type)
+│   └── diagram_content_standards.md  # Content & layout standards
 ├── scripts/
-│   └── validate_drawio.sh                   # Automated XML validation
+│   └── validate_drawio.sh           # Automated XML validation script
 └── assets/
-    ├── template_er.drawio                   # ER Diagram XML template
-    ├── template_usecase.drawio              # Use Case Diagram XML template
-    ├── template_sequence.drawio              # Sequence Diagram XML template
-    └── template_flowchart.drawio            # Flowchart XML template
+    ├── template_er.drawio           # ER Diagram template
+    ├── template_usecase.drawio       # Use Case Diagram template
+    ├── template_sequence.drawio      # Sequence Diagram template
+    └── template_flowchart.drawio    # Flowchart template
 ```
 
 ---
 
-## Quick Start
-
-### Install
+## Install
 
 **Option A — Merge into project `CLAUDE.md`**
 
@@ -73,20 +68,22 @@ cat SKILL.md >> /path/to/your-project/CLAUDE.md
 
 **Option B — As a global Claude Code skill**
 
-Reference this repo as your skills directory. See [Claude Code official docs](https://docs.anthropic.com/en/docs/claude-code) for skill path configuration.
+Set this repo as your skills directory. See [Claude Code official docs](https://docs.anthropic.com/en/docs/claude-code) for skill path configuration.
 
-### Usage
+---
 
-Trigger the skill in Claude Code:
+## Usage
 
-```
-/drawio-skill
-```
-
-Or just describe what you need naturally:
+Just describe what you need in Claude Code:
 
 ```
 Draw an ER diagram for a hospital system with Patient, Doctor, Appointment, and Prescription tables
+```
+
+```
+Draw a multi-module ER diagram with a user module (User + Address tables) and an order module
+(Order + OrderItem tables). Include is mandatory across modules, extend is optional.
+Make sure the canvas is large enough to prevent line overlaps.
 ```
 
 ```
@@ -94,24 +91,68 @@ Generate a use case diagram for an online shopping system with Buyer, Seller, an
 ```
 
 ```
-Draw a sequence diagram for the user login flow
-```
-
-```
-Draw a flowchart for the loan approval process
+Draw a loan approval flowchart: Start → Review → Decision → Approve → End
 ```
 
 ---
 
 ## Generated Output
 
-The skill writes a `.drawio` XML file to your user home directory:
+Files are written to the **current project root directory** (not the user home folder):
 
 ```
-C:\Users\{username}\{filename}.drawio
+{project_root}/{filename}.drawio
 ```
 
-Open it in draw.io: **File → Open → select the file**
+Open in draw.io: **File → Open → select the `.drawio` file**
+
+---
+
+## Canvas & Color Standards
+
+| Property | Standard |
+|----------|----------|
+| **Background** | Pure transparent (`page="0"`, no gray/white page) |
+| **Colors** | Black & white only (`#000/#333/#555/#888/#ccc/#fff`), no color |
+| **Grid** | `gridSize="10"`, all coordinates multiples of 10 |
+| **Legend** | Required in bottom-right corner of every diagram |
+
+---
+
+## Layout Quick Reference
+
+### ER Diagram — L1~L4 Semantic Layers
+
+```
+L1 Base tables (top-left) → L2 Business tables (center) → L3 Detail tables (right/below) → L4 Config tables (bottom-right)
+Solid + crow's foot = 1:N     Dashed = self-reference
+Multi-module: ≥300px gap between modules; include (mandatory) dashed arrow, extend (optional) dashed triangle
+Legend fixed at bottom-right
+```
+
+### Use Case Diagram — Actor-UseCase Layers
+
+```
+Actor (left) ─── UseCase ellipse (inside System boundary, 2~3 column grid)
+Solid        = association
+Dashed arrow = include / extend
+Solid tri    = generalization
+```
+
+### Sequence Diagram — BCE Architecture
+
+```
+Actor → Boundary/Interface → Control/Service → Entity/Repo → External System
+Object boxes at top, messages numbered top-to-bottom, lifelines centered
+```
+
+### Flowchart
+
+```
+Main flow left→right, Yes→right/below, No→left/bottom
+Rounded rect = Activity     Diamond = Decision
+Ellipse      = Start/End    Solid arrow = Flow
+```
 
 ---
 
@@ -121,65 +162,18 @@ Open it in draw.io: **File → Open → select the file**
 bash scripts/validate_drawio.sh output.drawio
 ```
 
-Checks:
-- ✅ XML basic structure (`<mxfile>`, `<diagram>`, `<mxGraphModel>`, `<root>`)
-- ✅ Diagram type auto-detection
-- ✅ mxCell tag balance
-- ✅ Grid alignment (coordinates are multiples of 10)
-- ✅ Legend presence
-- ✅ xmllint deep validation (optional)
-
----
-
-## Layout Standards
-
-### ER Diagram
-```
-L1 Base (User/Account)   →  L2 Business (Product/Order)   →  L3 Detail (OrderItem/Payment)   →  L4 Config (Category/Coupon)
-Left ────────────────────→  Center ──────────────────────────→  Right ──────────────────────────────→  Bottom-right
-solid crow's foot = 1:N    dashed = self-reference    Legend fixed at x=1140, y=40
-```
-
-### Use Case Diagram
-```
-x=0~120:   Actor zone (left, vertical stack, 60px spacing)
-x=160~1060: System boundary box (rounded rect, white fill, 40px padding)
-             UseCases in 2~3 column grid inside
-solid        = association
-dashed       = include / extend
-solid+tri    = generalization
-```
-
-### Sequence Diagram
-```
-Column width 200px   Object boxes at top (y=40)   Lifelines dashed vertical
-solid+filled triangle = sync request
-dashed+hollow triangle = return
-solid+hollow triangle  = async
-nested gray rect       = self-call
-```
-
-### Flowchart
-```
-Main flow left→right
-Decision: Yes→right/below  No→left/bottom
-green ellipse  = Start / Success
-red ellipse     = End / Failure
-yellow rhombus = Decision / Review
-white rounded  = Activity
-blue parallelogram = Input / Output
-```
+Checks: XML structure integrity, diagram type detection, mxCell tag balance, grid alignment, legend presence, xmllint deep validation.
 
 ---
 
 ## Format Specifications
 
-Full XML format specs for all diagram types are in `references/drawio_xml_format.md`, including:
+Full XML format specs are in `references/drawio_xml_format.md`, including:
 
-- mxCell / mxGeometry structure for each element type
-- Edge styles: `endArrow=ERmany`, `endArrow=classic`, `endArrow=open`, `dashed=1`
-- Table layout: header at `y=30`, field rows at `y=60+(n-1)*18`
-- ID naming convention: `t1,t2,t3` (tables), `act1,act2` (actors), `uc1,uc2` (usecases), `obj1,obj2` (objects), `rel1,rel2` (edges), `leg1` (legend)
+- mxCell / mxGeometry structure for every element type
+- Edge styles: `endArrow=ERmany` / `endArrow=classic` / `endArrow=open` / `dashed=1`
+- Complete XML examples for ER Diagram include (`dashed=1 + endArrow=open + <<include>>`) and extend (`dashed=1 + endArrow=classic + <<extend>>`)
+- ID naming convention: `t1,t2` (tables), `act1,act2` (actors), `uc1,uc2` (usecases), `leg1` (legend)
 
 ---
 
