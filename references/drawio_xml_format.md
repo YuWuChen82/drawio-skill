@@ -66,6 +66,94 @@ Lifeline长度 = y(对象框底部) + (消息数量 × 消息间距) + 尾部余
 
 ---
 
+## UML 布局参考标准（每种图的行业惯例）
+
+> 布局不是随意的。UML 规范和业界惯例决定了每种图的元素应该如何排列。
+
+### 用例图参考模式
+
+```
+参考1：主Actor+核心业务（最常用）
+┌──────────────────────────────────────────────┐
+│                                              │
+│  主Actor ────── 主用例1 ─ 主用例2 ─ 主用例3   │
+│   (User)                                     │
+│          ────── 主用例4                       │
+│                                              │
+│  次级Actor ─── 次用例1 ─ 次用例2             │
+│   (Admin)                                    │
+│                                              │
+└──────────────────────────────────────────────┘
+
+参考2：Include/Extend 紧邻布局
+┌──────────────────────────────────────────────┐
+│  Actor ─── 登录(基UC) ────┬── 验证验证码(include)
+│                    ────┬┴── 找回密码(extend)
+└──────────────────────────────────────────────┘
+  ↑ include/extend UC 与基UC水平或垂直相邻，间距≤30px
+```
+
+### 时序图参考模式（BCE架构）
+
+```
+参考：BCE（Boundary-Control-Entity）架构
+┌──────────┬──────────┬──────────┬──────────┬──────────┐
+│  Actor   │ Boundary │ Control  │  Entity  │ External │
+│  (用户)  │  (UI)    │ (Service)│  (Repo)  │  (API)   │
+└──────────┴──────────┴──────────┴──────────┴──────────┘
+  从左到右 = 与发起者距离递减
+  消息流：Actor→Boundary→Control→Entity
+  外部API在最右侧
+```
+
+### ER图参考模式（L1~L4分层）
+
+```
+参考：四层依赖链
+L1 ───────────▶ L2 ───────────▶ L3 ───────────▶ L4
+用户/账户       业务实体         附属/明细        配置字典
+(左上)          (居中)           (右下/下行)      (边缘)
+  └────────────────────▶ L2(引用L1外键)
+                         └────────────────────▶ L3
+```
+
+### 流程图参考模式（泳道）
+
+```
+参考：垂直泳道 + 主干判断
+┌──────────┬──────────┬──────────┐
+│  前端    │  后端     │  数据库   │ ← 泳道标题
+│  ────   │  ────    │  ────    │
+│ [开始]   │          │          │
+│    ↓    │ [处理]   │          │
+│ [输入]   │    ↓    │          │
+│    ↓    │ ◇判断?───Yes──[活动]│
+│         │   │No              │
+│         │   ↓                │
+│         │ [异常处理]          │
+└──────────┴────────────────────┘
+```
+
+### 类图参考模式（包+继承）
+
+```
+参考：包边界 + 继承树
+┌─ 包：domain ────────────────────────┐
+│  ┌────────┐                        │
+│  │ User   │ ← 父类居上             │
+│  └────┬───┘                        │
+│   ┌───┴───┐                        │
+│   ▼       ▼                        │
+│ Admin   Customer ← 子类垂直排列    │
+└────────────────────────────────────┘
+
+┌─ 包：infrastructure ──────────────┐
+│  UserRepo    OrderRepo ← 同包横向 │
+└────────────────────────────────────┘
+```
+
+---
+
 ## I. ER 图
 
 ### 1.1 表容器
@@ -147,7 +235,22 @@ Lifeline长度 = y(对象框底部) + (消息数量 × 消息间距) + 尾部余
   表D → x=40,  y=180  （第二行，根据表高调整）
 ```
 
-> **禁止**：写死 `TableA(40,40) TableB(40,280)` 这种坐标表——它只适用于固定数量，不适配实际内容。
+### 1.3 ER 图 L1~L4 分层布局（强制）
+
+**按 L层确定行号，不按表序号：**
+```
+row(表) = L层号（L1=0, L2=1, L3=2, L4=3）
+
+表x = 40 + 列号 × (max表宽 + 80)
+表y = 40 + L层行号 × (max表高 + 80)
+```
+
+**L1~L4 强制规则：**
+- L1（用户/账户/角色）→ 必须在前两行（y ≤ 200）
+- L4（分类/标签/配置）→ 必须在最后一行（y 最大的行）
+- L1 和 L4 之间至少隔一行
+
+> **禁止**：`TableA(40,40) TableB(40,280)` 这种写死坐标——必须用 L层→行号 公式。
 
 ---
 
@@ -252,6 +355,18 @@ height = max(所有用例bottom + 上下padding) - min(所有用例top) + 40
 用例网格: 列间距=160px，行间距=80px
   列x = 70 + 50 + gap(20) + col×160
   行y = 40 + row×80
+
+**Include/Extend 紧邻布局（关键）：**
+```
+Include UC 与基UC水平相邻：
+  x(include_uc) = x(基UC) + width(基UC) + 20
+  y(include_uc) = y(基UC)  ← 同一水平线
+
+Extend UC 与基UC垂直相邻：
+  x(extend_uc) = x(基UC)
+  y(extend_uc) = y(基UC) + 80  ← 垂直下方
+```
+> 禁止 Include/Extend UC 与基UC间距超过 30px。
 ```
 
 ---
@@ -334,11 +449,14 @@ height = max(所有用例bottom + 上下padding) - min(所有用例top) + 40
 </mxCell>
 ```
 
-### 3.5 时序图布局公式
+### 3.5 时序图布局公式 + BCE 对象排序
 
 ```
 列宽 = max(对象文本最长px + 40, 100)（不等宽）
-列起始x = 40, 160, 280, ...（动态累加）
+列起始x = 40, 40+列宽1, 40+列宽1+列宽2, ...
+
+对象列顺序（从左到右 = 与Actor距离递减）：
+  Actor → Boundary/Interface → Control/Service → Entity/Repo → ExternalSystem
 
 消息y坐标: y = 90 + 消息序号×60
   序号1 → y=90, 序号2 → y=150, 序号3 → y=210, ...
@@ -441,6 +559,83 @@ height = max(所有用例bottom + 上下padding) - min(所有用例top) + 40
   x = 起始x + (节点index - 1) × (节点宽度 + 60)
   y = 起始y + 当前行偏移
 ```
+
+### 4.4 Swimlane（泳道）XML 模板
+
+泳道用于分隔不同角色/系统的职责区域。
+
+**泳道分隔线（垂直分隔，贯穿全高）：**
+```xml
+<!-- 泳道1标题 -->
+<mxCell value="前端" style="
+  text;html=1;strokeColor=none;fillColor=none;
+  align=center;verticalAlign=middle;fontSize=12;fontColor=#333;fontStyle=1;
+" vertex="1" parent="1">
+  <mxGeometry x="40" y="40" width="180" height="30" as="geometry"/>
+</mxCell>
+<!-- 泳道1右侧分隔线 -->
+<mxCell value="" style="
+  endArrow=none;html=1;strokeWidth=2;strokeColor=#555;
+" edge="1" parent="1">
+  <mxGeometry relative="1" as="geometry">
+    <mxPoint x="220" y="40" as="sourcePoint"/>
+    <mxPoint x="220" y="600" as="targetPoint"/>
+  </mxGeometry>
+</mxCell>
+
+<!-- 泳道2标题（在泳道1分隔线右侧） -->
+<mxCell value="后端" style="
+  text;html=1;strokeColor=none;fillColor=none;
+  align=center;verticalAlign=middle;fontSize=12;fontColor=#333;fontStyle=1;
+" vertex="1" parent="1">
+  <mxGeometry x="220" y="40" width="180" height="30" as="geometry"/>
+</mxCell>
+<!-- 泳道2右侧分隔线 -->
+<mxCell value="" style="
+  endArrow=none;html=1;strokeWidth=2;strokeColor=#555;
+" edge="1" parent="1">
+  <mxGeometry relative="1" as="geometry">
+    <mxPoint x="400" y="40" as="sourcePoint"/>
+    <mxPoint x="400" y="600" as="targetPoint"/>
+  </mxGeometry>
+</mxCell>
+```
+
+> 泳道宽 = 该泳道内最宽节点 + 节点到分隔线间距（≥20px）。泳道数量 = 角色/系统数量。
+
+### 4.5 包边界 XML 模板（类图）
+
+```xml
+<!-- 包名标签（斜体，放在左上角） -->
+<mxCell value="包：domain" style="
+  text;html=1;strokeColor=none;fillColor=none;
+  align=left;verticalAlign=top;fontSize=13;fontColor=#555;fontStyle=2;
+" vertex="1" parent="1">
+  <mxGeometry x="200" y="80" width="100" height="20" as="geometry"/>
+</mxCell>
+<!-- 包边界（虚线矩形） -->
+<mxCell value="" style="
+  endArrow=none;dashed=1;html=1;
+  strokeWidth=1;strokeColor=#999;strokeDashPattern="3 3";
+" edge="1" parent="1">
+  <mxGeometry relative="1" as="geometry">
+    <mxPoint x="200" y="100" as="sourcePoint"/>
+    <mxPoint x="500" y="100" as="targetPoint"/>
+  </mxGeometry>
+</mxCell>
+<!-- 补充：包矩形顶点（作为 vertex） -->
+<mxCell value="" style="
+  shape=rect;html=1;whiteSpace=wrap;
+  strokeColor=#999;fillColor=none;strokeWidth=1;dashed=1;strokeDashPattern="3 3";
+" vertex="1" parent="1">
+  <mxGeometry x="200" y="100"
+    width="{包宽 = max(类宽) + 60}"
+    height="{包高 = max(类高) + 100}"
+    as="geometry"/>
+</mxCell>
+```
+
+> 包边界为虚线矩形。左上角放包名（斜体 `fontStyle=2`）。所有类元素必须在此矩形范围内。
 
 ---
 
