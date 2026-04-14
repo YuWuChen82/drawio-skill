@@ -8,10 +8,6 @@ English | **[中文](README_zh.md)**
 
 <div align="center">
 
-```
-npx skills add {github_username}/drawio-skill
-```
-
 [![License: MIT](https://img.shields.io/badge/License-MIT-green?style=flat-square)](LICENSE)
 [![Claude Code Skill](https://img.shields.io/badge/Claude%20Code-Skill-blue?style=flat-square)](https://docs.anthropic.com/en/docs/claude-code)
 [![draw.io XML](https://img.shields.io/badge/draw.io-XML-brightgreen?style=flat-square)](https://app.diagrams.net/)
