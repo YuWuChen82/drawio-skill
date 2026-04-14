@@ -35,12 +35,12 @@
       connect="1" arrows="1"
       fold="1" page="1"
       pageScale="1"
-      pageWidth="1600" pageHeight="1200"
       math="0" shadow="0">
+      <!-- pageWidth / pageHeight 由内容决定，详见画布尺寸规范 -->
       <root>
         <mxCell id="0"/>
         <mxCell id="1" parent="0"/>
-        
+
       </root>
     </mxGraphModel>
   </diagram>
@@ -273,6 +273,54 @@ L1 ───────────▶ L2 ───────────▶ 
   x = 40 + c × (max表宽 + 80)
   y = 40 + r × (max表高 + 80)
 ```
+
+### 1.5 多模块 ER 图 include / extend 关系（必须含标签文字）
+
+> 多模块 ER 图中，跨模块的引用依赖必须用 `<<include>>` 标签；子类表对基类表用 `<<extend>>` 标签。**标签文字不可省略**，否则无法区分 include/extend 与普通 1:N 关系。
+
+**Include 关系（必选，跨模块引用）：**
+```xml
+<mxCell value="&#171;include&#187;" style="
+  edgeStyle=entityRelationEdgeStyle;rounded=0;
+  dashed=1;dashPattern=8 4;
+  endArrow=open;endFill=0;html=1;strokeWidth=1.5;strokeColor=#555;
+  edgeLabel;align=center;verticalAlign=top;fontSize=10;fontColor=#888;fontStyle=2;
+" edge="1" parent="1" source="{srcModule}1" target="{dstModule}1">
+  <mxGeometry relative="1" as="geometry"/>
+</mxCell>
+```
+- `dashed=1` + `dashPattern=8 4`：虚线样式
+- `endArrow=open`：开放箭头（不含填充）
+- `&#171;include&#187;` = UML 标签文字 `<<include>>`
+- `fontStyle=2`：斜体（UML 惯例）
+
+**Extend 关系（可选，泛化/特例）：**
+```xml
+<mxCell value="&#171;extend&#187;" style="
+  edgeStyle=entityRelationEdgeStyle;rounded=0;
+  dashed=1;dashPattern=8 4;
+  endArrow=classic;endFill=0;html=1;strokeWidth=1.5;strokeColor=#555;
+  edgeLabel;align=center;verticalAlign=top;fontSize=10;fontColor=#888;fontStyle=2;
+" edge="1" parent="1" source="{subClass}1" target="{baseClass}1">
+  <mxGeometry relative="1" as="geometry"/>
+</mxCell>
+```
+- `endArrow=classic`：实心三角箭头（表示泛化方向）
+- `&#171;extend&#187;` = UML 标签文字 `<<extend>>`
+- 箭头方向：子类 → 基类
+
+**Include vs Extend 区别：**
+```
+Include（引用依赖）：虚线 + 空心箭头 + <<include>>
+  模块A: Order ──▶ User（订单引用用户的user_id）
+  方向：引用方 → 被引用方
+
+Extend（泛化特例）：虚线 + 实心三角 + <<extend>>
+  DiscountOrder ──▶ Order（优惠订单是订单的特例）
+  方向：子类 → 基类
+```
+
+**禁止**：include/extend 连线上没有标签文字；Include 用 `endArrow=classic`（这是 Extend 的箭头）；Extend 用 `endArrow=open`（这是 Include 的箭头）
 
 ---
 
