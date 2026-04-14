@@ -392,33 +392,39 @@ Extend（泛化特例）：虚线 + 实心三角 + <extend>
 
 ### 2.4 用例图线条路由规范
 
-**核心原则：** 同一Actor的关联线走同一水平通道；Include/Extend紧邻基用例。
+**核心原则：** 横向树形布局下，同一 Actor 的所有用例垂直排列，关联线水平；Include/Extend 紧邻基用例。
 
 ```
 路由层次：
 
-  Actor ──────────▶ uc1 ────▶ uc2(include)     ← 关联线(水平，y对齐uc1中心)
-                 ↙ uc3(extend)                  ← extend线(垂直向下，x=uc3中心)
+  Actor ──┬── uc1 ──▶ includeUC1 ──▶ includeUC2   ← 同一分组，垂直均匀分布
+          │
+          └── uc2 ──▶ extendUC1
+                       │
+                       ▼ extendUC2                    ← Extend在基用例下方，不占水平空间
 
-多个Actor时，每Actor的关联线共享同一y坐标（垂直对齐）：
-  act1(主) ───▶ uc1 ───▶ uc2
-  act2(次) ───▶ uc3 ───▶ uc4
-             ↑         ↑
-          y对齐uc1   y对齐uc3
+跨Actor连接（跨组）：连接线走在分组外侧，不穿过其他分组
 ```
 
 **禁止穿越规则：**
 - 角色→用例连线不得穿过任何其他用例椭圆
-- 若连线被阻挡，重新调整用例x坐标（不得调整连线路径）
 - Include/Extend线不得与关联线交叉
+- Extend 连线不得穿过同组其他 UC 的主体
 
 ### 2.5 用例图布局公式
 
 ```
-角色区: x=0~50，y间距=80px（每行一个Actor）
-用例网格: 列间距=160px，行间距=80px
-  列x = 70 + 50 + gap(20) + col×160
-  行y = 40 + row×80
+Actor: x=40，y间距=80px，width=30，height=60
+用例分组（垂直展开）:
+  组间距（水平）= 120px
+  组内UC垂直间距 = 60px（每UC一行）
+  x = 120 + 20 = 140（第一个UC）
+    x = 140 + (组内序号) × 80
+  y = 80 + (行号) × 60
+
+Include: 水平放在基UC右侧，y=基UC中心y
+Extend:  垂直放在基UC下方（y+80），x=基UC中心x
+```
 
 Include/Extend 紧邻布局（关键）：
 Include UC 与基UC水平相邻：
