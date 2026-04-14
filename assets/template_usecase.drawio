@@ -5,83 +5,30 @@
         <mxCell id="0"/>
         <mxCell id="1" parent="0"/>
 
-        <!-- ========== System Boundary Box ========== -->
-        <!-- Copy and adjust width/height based on UseCase count -->
-        <!--
-        <mxCell id="sys1" value="System Name" style="
-          shape=rounded;rounded=1;arcSize=14;boundingBox=1;html=1;
-          whiteSpace=wrap;align=left;verticalAlign=top;
-          spacingLeft=10;spacingTop=10;
-          fillColor=#f5f5f5;strokeColor=#333;strokeWidth=2;
-          fontStyle=1;fontSize=14;fontColor=#222;
-        " vertex="1" parent="1">
-          <mxGeometry x="160" y="40" width="900" height="600" as="geometry"/>
-        </mxCell>
-        -->
+        
+        
+        
 
-        <!-- ========== Actor Template ========== -->
-        <!--
-        <mxCell id="act1" value="" style="
-          shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;
-          html=1;outlineConnect=0;fillColor=#fff;strokeColor=#333;strokeWidth=2;
-        " vertex="1" parent="1">
-          <mxGeometry x="40" y="100" width="30" height="60" as="geometry"/>
-        </mxCell>
-        <mxCell id="act1_lbl" value="Actor Name" style="
-          text;html=1;strokeColor=none;fillColor=none;
-          align=center;verticalAlign=top;fontSize=11;fontColor=#333;
-        " vertex="1" parent="1">
-          <mxGeometry x="10" y="165" width="90" height="20" as="geometry"/>
-        </mxCell>
-        -->
+        
+        
 
-        <!-- ========== UseCase Template ========== -->
-        <!--
-        <mxCell id="uc1" value="Use Case Name" style="
-          shape=ellipse;html=1;whiteSpace=wrap;
-          fillColor=#fff;strokeColor=#555;strokeWidth=1.5;
-          align=center;verticalAlign=middle;fontSize=12;fontColor=#222;
-        " vertex="1" parent="1">
-          <mxGeometry x="300" y="100" width="160" height="50" as="geometry"/>
-        </mxCell>
-        -->
+        
+        
 
-        <!-- ========== Association (Actor to UseCase) ========== -->
-        <!--
-        <mxCell value="" style="endArrow=none;html=1;strokeWidth=1.5;strokeColor=#555;" edge="1" parent="1" source="act1" target="uc1">
-          <mxGeometry relative="1" as="geometry"/>
-        </mxCell>
-        -->
+        
+        
 
-        <!-- ========== Include (dashed arrow) ========== -->
-        <!--
-        <mxCell value="&#xa;&#xa;&#171;include&#187;" style="
-          endArrow=open;dashed=1;html=1;strokeWidth=1.5;strokeColor=#555;
-          edgeLabel;align=center;verticalAlign=top;fontSize=10;fontColor=#888;fontStyle=2;
-        " edge="1" parent="1" source="uc1" target="uc2">
-          <mxGeometry relative="1" as="geometry"/>
-        </mxCell>
-        -->
+        
+        
 
-        <!-- ========== Extend (dashed arrow) ========== -->
-        <!--
-        <mxCell value="&#xa;&#xa;&#171;extend&#187;" style="
-          endArrow=open;dashed=1;html=1;strokeWidth=1.5;strokeColor=#555;
-          edgeLabel;align=center;verticalAlign=top;fontSize=10;fontColor=#888;fontStyle=2;
-        " edge="1" parent="1" source="uc_child" target="uc_parent">
-          <mxGeometry relative="1" as="geometry"/>
-        </mxCell>
-        -->
+        
+        
 
-        <!-- ========== Generalization (solid + triangle) ========== -->
-        <!--
-        <mxCell value="" style="endArrow=classic;html=1;strokeWidth=1.5;strokeColor=#555;" edge="1" parent="1" source="uc_child" target="uc_parent">
-          <mxGeometry relative="1" as="geometry"/>
-        </mxCell>
-        -->
+        
+        
 
-        <!-- ========== Legend ========== -->
-        <mxCell id="leg1" value="Legend" style="shape=table;startSize=30;container=1;collapsible=0;childLayout=tableLayout;fixedRows=1;rowLines=0;fontStyle=1;align=left;verticalAlign=top;fillColor=#fafafa;strokeColor=#ddd;fontColor=#444;" vertex="1" parent="1">
+        
+        <mxCell id="leg1" value="Legend" style="shape=table;startSize=30;container=1;collapsible=0;childLayout=tableLayout;fixedRows=1;rowLines=0;fontStyle=1;align=left;verticalAlign=top;fillColor=#fff;strokeColor=#ccc;fontColor=#333;" vertex="1" parent="1">
           <mxGeometry x="1140" y="40" width="200" height="130" as="geometry"/>
         </mxCell>
         <mxCell value="" style="shape=partialRectangle;html=1;whiteSpace=wrap;collapsible=0;fixedRows=1;rowLines=0;fontStyle=1;align=left;verticalAlign=top;" vertex="1" parent="leg1">

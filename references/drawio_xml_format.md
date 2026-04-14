@@ -40,7 +40,7 @@
       <root>
         <mxCell id="0"/>
         <mxCell id="1" parent="0"/>
-        <!-- content -->
+        
       </root>
     </mxGraphModel>
   </diagram>
@@ -660,14 +660,15 @@ Extend UC 与基UC垂直相邻：
 
 **泳道分隔线（垂直分隔，贯穿全高）：**
 ```xml
-<!-- 泳道1标题 -->
+## // Swimlane 1 title
+
 <mxCell value="前端" style="
   text;html=1;strokeColor=none;fillColor=none;
   align=center;verticalAlign=middle;fontSize=12;fontColor=#333;fontStyle=1;
 " vertex="1" parent="1">
   <mxGeometry x="40" y="40" width="180" height="30" as="geometry"/>
 </mxCell>
-<!-- 泳道1右侧分隔线 -->
+
 <mxCell value="" style="
   endArrow=none;html=1;strokeWidth=2;strokeColor=#555;
 " edge="1" parent="1">
@@ -677,14 +678,14 @@ Extend UC 与基UC垂直相邻：
   </mxGeometry>
 </mxCell>
 
-<!-- 泳道2标题（在泳道1分隔线右侧） -->
+
 <mxCell value="后端" style="
   text;html=1;strokeColor=none;fillColor=none;
   align=center;verticalAlign=middle;fontSize=12;fontColor=#333;fontStyle=1;
 " vertex="1" parent="1">
   <mxGeometry x="220" y="40" width="180" height="30" as="geometry"/>
 </mxCell>
-<!-- 泳道2右侧分隔线 -->
+
 <mxCell value="" style="
   endArrow=none;html=1;strokeWidth=2;strokeColor=#555;
 " edge="1" parent="1">
@@ -700,14 +701,14 @@ Extend UC 与基UC垂直相邻：
 ### 4.6 包边界 XML 模板（类图）
 
 ```xml
-<!-- 包名标签（斜体，放在左上角） -->
+
 <mxCell value="包：domain" style="
   text;html=1;strokeColor=none;fillColor=none;
   align=left;verticalAlign=top;fontSize=13;fontColor=#555;fontStyle=2;
 " vertex="1" parent="1">
   <mxGeometry x="200" y="80" width="100" height="20" as="geometry"/>
 </mxCell>
-<!-- 包边界（虚线矩形） -->
+
 <mxCell value="" style="
   endArrow=none;dashed=1;html=1;
   strokeWidth=1;strokeColor=#999;strokeDashPattern="3 3";
@@ -717,7 +718,7 @@ Extend UC 与基UC垂直相邻：
     <mxPoint x="500" y="100" as="targetPoint"/>
   </mxGeometry>
 </mxCell>
-<!-- 补充：包矩形顶点（作为 vertex） -->
+
 <mxCell value="" style="
   shape=rect;html=1;whiteSpace=wrap;
   strokeColor=#999;fillColor=none;strokeWidth=1;dashed=1;strokeDashPattern="3 3";

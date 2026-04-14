@@ -5,28 +5,14 @@
         <mxCell id="0"/>
         <mxCell id="1" parent="0"/>
 
-        <!-- ========== ER Template Placeholders: copy block to create actual tables ========== -->
-        <!--
-        <mxCell id="t1" value="EntityName" style="shape=table;startSize=30;container=1;collapsible=0;childLayout=tableLayout;fixedRows=1;rowLines=0;fontStyle=1;align=left;verticalAlign=top;" vertex="1" parent="1">
-          <mxGeometry x="40" y="40" width="200" height="120" as="geometry"/>
-        </mxCell>
-        <mxCell value="" style="shape=partialRectangle;html=1;whiteSpace=wrap;collapsible=0;fixedRows=1;rowLines=0;fontStyle=1;align=left;verticalAlign=top;" vertex="1" parent="t1">
-          <mxGeometry y="30" width="200" height="30" as="geometry"/>
-        </mxCell>
-        <mxCell value="id              BIGINT PK&#xa;name            VARCHAR(100)&#xa;status         TINYINT&#xa;created_at     DATETIME&#xa;updated_at     DATETIME" style="shape=partialRectangle;html=1;whiteSpace=wrap;collapsible=0;fixedRows=1;rowLines=0;fontStyle=0;align=left;verticalAlign=top;spacingLeft=6;" vertex="1" parent="t1">
-          <mxGeometry y="60" width="200" height="60" as="geometry"/>
-        </mxCell>
-        -->
+        
+        
 
-        <!-- ========== Relation Edge Template (1:N) ========== -->
-        <!--
-        <mxCell value="" style="edgeStyle=entityRelationEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=1;endArrow=ERmany;endFill=0;" edge="1" parent="1" source="t1" target="t2">
-          <mxGeometry relative="1" as="geometry"/>
-        </mxCell>
-        -->
+        
+        
 
-        <!-- ========== Legend (must be preserved) ========== -->
-        <mxCell id="leg1" value="Legend" style="shape=table;startSize=30;container=1;collapsible=0;childLayout=tableLayout;fixedRows=1;rowLines=0;fontStyle=1;align=left;verticalAlign=top;fillColor=#fafafa;strokeColor=#ddd;fontColor=#444;" vertex="1" parent="1">
+        
+        <mxCell id="leg1" value="Legend" style="shape=table;startSize=30;container=1;collapsible=0;childLayout=tableLayout;fixedRows=1;rowLines=0;fontStyle=1;align=left;verticalAlign=top;fillColor=#fff;strokeColor=#ccc;fontColor=#333;" vertex="1" parent="1">
           <mxGeometry x="1140" y="40" width="200" height="130" as="geometry"/>
         </mxCell>
         <mxCell value="" style="shape=partialRectangle;html=1;whiteSpace=wrap;collapsible=0;fixedRows=1;rowLines=0;fontStyle=1;align=left;verticalAlign=top;" vertex="1" parent="leg1">
