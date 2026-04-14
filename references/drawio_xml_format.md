@@ -74,7 +74,6 @@
 | 活动节点 | `文本行数 × 行高 + 上下padding` |
 | 判断菱形 | `minHeight=80`（固定最小高） |
 | 椭圆（开始/结束） | `minHeight=40` |
-| 系统边界框 | `计算：max(所有用例bottom + padding)` |
 
 ### 生命线长度公式
 
@@ -330,39 +329,7 @@ Extend（泛化特例）：虚线 + 实心三角 + <<extend>>
 
 ## II. 用例图
 
-### 2.1 系统边界框
-
-```xml
-<mxCell id="sys1" value="System Name" style="
-  shape=rounded;rounded=1;arcSize=14;
-  boundingBox=1;html=1;whiteSpace=wrap;
-  align=left;verticalAlign=top;
-  spacingLeft=10;spacingTop=10;
-  fillColor=#fff;strokeColor=#333;strokeWidth=2;
-  fontStyle=1;fontSize=14;fontColor=#222;
-" vertex="1" parent="1">
-  <mxGeometry x="160" y="40"
-    width="{用例区总宽度 + 角色区宽度 + gap}"
-    height="{用例区总高度 + padding×2}"
-    as="geometry"/>
-</mxCell>
-```
-
-**宽度计算：**
-```
-width = 角色宽度(50) + gap(20) + 用例区列数 × 列宽(160) + 右边距(40)
-      = 50 + 20 + 列数×160 + 40
-```
-
-**高度计算：**
-```
-height = max(所有用例bottom + 上下padding) - min(所有用例top) + 40
-        = 用例区实际垂直跨度 + 40
-```
-
-> **禁止**：`width="900" height="600"` 硬编码。必须根据用例数量和排列计算。
-
-### 2.2 Actor（角色，必须是火柴人）
+### 2.1 Actor（角色，必须是火柴人）
 
 > **强制**：参与者必须使用 `shape=umlActor`（标准 UML 火柴人），禁止使用矩形/圆形/其他形状替代。
 
@@ -381,7 +348,7 @@ height = max(所有用例bottom + 上下padding) - min(所有用例top) + 40
 </mxCell>
 ```
 
-### 2.3 UseCase（用例椭圆）
+### 2.2 UseCase（用例椭圆）
 
 ```xml
 <mxCell id="uc1" value="Use Case Name" style="
@@ -398,7 +365,7 @@ height = max(所有用例bottom + 上下padding) - min(所有用例top) + 40
 
 > **禁止**：`width="160" height="50"` 硬编码。用例文本长度不同，宽度应随之变化。
 
-### 2.4 关系连线
+### 2.3 关系连线
 
 **关联（实线，无箭头）：**
 ```xml
@@ -423,7 +390,7 @@ height = max(所有用例bottom + 上下padding) - min(所有用例top) + 40
 
 **泛化：** 改 `endArrow=classic`
 
-### 2.5 用例图线条路由规范
+### 2.4 用例图线条路由规范
 
 **核心原则：** 同一Actor的关联线走同一水平通道；Include/Extend紧邻基用例。
 
@@ -445,11 +412,10 @@ height = max(所有用例bottom + 上下padding) - min(所有用例top) + 40
 - 若连线被阻挡，重新调整用例x坐标（不得调整连线路径）
 - Include/Extend线不得与关联线交叉
 
-### 2.6 用例图布局公式
+### 2.5 用例图布局公式
 
 ```
 角色区: x=0~50，y间距=80px（每行一个Actor）
-系统边界: x=70，width按用例列数计算，height按用例行数计算
 用例网格: 列间距=160px，行间距=80px
   列x = 70 + 50 + gap(20) + col×160
   行y = 40 + row×80
@@ -855,7 +821,6 @@ Extend UC 与基UC垂直相邻：
 用例:        uc1, uc2, uc3
 对象:        obj1, obj2, obj3
 连线:        rel1, rel2, rel3 ...
-系统框:      sys1
 嵌套矩形:    nest1, nest2
 ```
 
