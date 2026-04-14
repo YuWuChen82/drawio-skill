@@ -60,15 +60,7 @@ drawio-skill/
 
 ## Install
 
-**Option A — Merge into project `CLAUDE.md`**
-
-```bash
-cat SKILL.md >> /path/to/your-project/CLAUDE.md
-```
-
-**Option B — As a global Claude Code skill**
-
-Set this repo as your skills directory. See [Claude Code official docs](https://docs.anthropic.com/en/docs/claude-code) for skill path configuration.
+Set this repo as your Claude Code skills directory. See [Claude Code official docs](https://docs.anthropic.com/en/docs/claude-code) for skill path configuration.
 
 ---
 

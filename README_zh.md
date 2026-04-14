@@ -60,15 +60,7 @@ drawio-skill/
 
 ## 安装
 
-**方式一 — 合并到项目 `CLAUDE.md`**
-
-```bash
-cat SKILL.md >> /path/to/your-project/CLAUDE.md
-```
-
-**方式二 — 作为全局 Claude Code skill**
-
-将本仓库设为 skills 目录，参考 [Claude Code 官方文档](https://docs.anthropic.com/en/docs/claude-code) 配置 skill 路径。
+将本仓库设为 Claude Code 的 skills 目录，参考 [Claude Code 官方文档](https://docs.anthropic.com/en/docs/claude-code) 配置 skill 路径。
 
 ---
 
