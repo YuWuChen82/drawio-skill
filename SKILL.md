@@ -423,7 +423,7 @@ ER图：
 
 - 文件路径：`{当前工作目录}/{filename}.drawio`（项目根目录，禁止使用用户文件夹路径）
 - 外层包装：`<mxfile host="app.diagrams.net">`
-- 画布：`gridSize="10"`，`guides="1"`，`connect="1"`，`arrows="1"`
+- 画布：`page="0"`（无页面背景=纯透明）、`gridSize="10"`、`guides="1"`、`connect="1"`、`arrows="1"`
 - 字体：`fontFamily=Helvetica`
 - 所有坐标和尺寸均为 10 的倍数
 

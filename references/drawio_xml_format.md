@@ -33,7 +33,7 @@
       grid="1" gridSize="10"
       guides="1" tooltips="1"
       connect="1" arrows="1"
-      fold="1" page="1"
+      fold="1" page="0"
       pageScale="1"
       math="0" shadow="0">
       <!-- pageWidth / pageHeight 由内容决定，详见画布尺寸规范 -->
