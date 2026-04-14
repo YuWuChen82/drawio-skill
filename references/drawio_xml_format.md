@@ -4,6 +4,25 @@
 
 ---
 
+## 通用颜色规范（强制：纯黑白）
+
+> **所有颜色必须为灰度值。禁止使用任何彩色。**
+
+**允许的颜色值：**
+| 颜色 | 用途 |
+|------|------|
+| `#000` | 文字颜色（最深） |
+| `#333` | 边框、描边（深灰） |
+| `#555` | 次要描边、文字 |
+| `#888` | 虚线、返回消息 |
+| `#999` | 辅助边框、嵌套矩形边框 |
+| `#ccc` | 浅边框、分隔线 |
+| `#fff` | 填充（白色，即无填充） |
+
+> **禁止**：任何 `#xxx` 中的第一个字符为 0-9 以外的字母以外的彩色，如 `#4CAF50`、`#FFF9C4`、`#E3F2FD`、`#2196F3`、`#F57F17`、`#f44336`、`#1565C0`、`#2E7D32`、`#c62828`、`#e8f4f8`、`#f5f5f5`、`#fafafa` 等。所有彩色一律替换为上方灰度值。
+
+---
+
 ## 通用模板
 
 ```xml
@@ -267,7 +286,7 @@ L1 ───────────▶ L2 ───────────▶ 
   boundingBox=1;html=1;whiteSpace=wrap;
   align=left;verticalAlign=top;
   spacingLeft=10;spacingTop=10;
-  fillColor=#f5f5f5;strokeColor=#333;strokeWidth=2;
+  fillColor=#fff;strokeColor=#333;strokeWidth=2;
   fontStyle=1;fontSize=14;fontColor=#222;
 " vertex="1" parent="1">
   <mxGeometry x="160" y="40"
@@ -291,7 +310,9 @@ height = max(所有用例bottom + 上下padding) - min(所有用例top) + 40
 
 > **禁止**：`width="900" height="600"` 硬编码。必须根据用例数量和排列计算。
 
-### 2.2 Actor（角色）
+### 2.2 Actor（角色，必须是火柴人）
+
+> **强制**：参与者必须使用 `shape=umlActor`（标准 UML 火柴人），禁止使用矩形/圆形/其他形状替代。
 
 ```xml
 <mxCell id="act1" value="" style="
@@ -401,9 +422,9 @@ Extend UC 与基UC垂直相邻：
 ```xml
 <mxCell id="obj_user" value="User" style="
   shape=rounded;rounded=1;html=1;whiteSpace=wrap;
-  fillColor=#e8f4f8;strokeColor=#2196F3;strokeWidth=2;
+  fillColor=#fff;strokeColor=#333;strokeWidth=2;
   align=center;verticalAlign=middle;
-  fontSize=12;fontColor=#1565C0;fontStyle=1;
+  fontSize=12;fontColor=#333;fontStyle=1;
 " vertex="1" parent="1">
   <mxGeometry x="{X}" y="40"
     width="{max(文本长度px + 40, 100)}"
@@ -462,7 +483,7 @@ Extend UC 与基UC垂直相邻：
 ```xml
 <mxCell value="1. methodA()" style="
   shape=rect;html=1;whiteSpace=wrap;
-  fillColor=#f5f5f5;strokeColor=#999;strokeWidth=1;
+  fillColor=#fff;strokeColor=#999;strokeWidth=1;
   align=left;verticalAlign=top;
 " vertex="1" parent="1">
   <mxGeometry x="55" y="150"
@@ -513,9 +534,9 @@ Extend UC 与基UC垂直相邻：
 ```xml
 <mxCell value="Start" style="
   shape=ellipse;html=1;whiteSpace=wrap;
-  fillColor=#4CAF50;strokeColor=#2E7D32;strokeWidth=2;
+  fillColor=#fff;strokeColor=#333;strokeWidth=2;
   align=center;verticalAlign=middle;
-  fontSize=12;fontColor=#fff;fontStyle=1;
+  fontSize=12;fontColor=#333;fontStyle=1;
 " vertex="1" parent="1">
   <mxGeometry x="{X}" y="{Y}"
     width="{max(文本长度px + 40, 最小宽度)}"
@@ -544,7 +565,7 @@ Extend UC 与基UC垂直相邻：
 ```xml
 <mxCell value="Passed?" style="
   shape=rhombus;html=1;whiteSpace=wrap;
-  fillColor=#FFF9C4;strokeColor=#F57F17;strokeWidth=1.5;
+  fillColor=#fff;strokeColor=#333;strokeWidth=1.5;
   align=center;verticalAlign=middle;fontSize=11;
 " vertex="1" parent="1">
   <mxGeometry x="{X}" y="{Y}"
@@ -560,7 +581,7 @@ Extend UC 与基UC垂直相邻：
 ```xml
 <mxCell value="Input Data" style="
   shape=parallelogram;html=1;whiteSpace=wrap;
-  fillColor=#E3F2FD;strokeColor=#1565C0;strokeWidth=1.5;
+  fillColor=#fff;strokeColor=#333;strokeWidth=1.5;
   align=center;verticalAlign=middle;fontSize=11;
 " vertex="1" parent="1">
   <mxGeometry x="{X}" y="{Y}"
@@ -574,7 +595,7 @@ Extend UC 与基UC垂直相邻：
 ```xml
 <mxCell value="" style="
   shape=ellipse;html=1;whiteSpace=wrap;
-  fillColor=#f44336;strokeColor=#c62828;strokeWidth=2;
+  fillColor=#fff;strokeColor=#333;strokeWidth=2;
 " vertex="1" parent="1">
   <mxGeometry x="{X}" y="{Y}" width="30" height="30" as="geometry"/>
 </mxCell>
@@ -721,7 +742,7 @@ Extend UC 与基UC垂直相邻：
   shape=table;startSize=30;container=1;collapsible=0;
   childLayout=tableLayout;fixedRows=1;rowLines=1;
   fontStyle=1;align=left;verticalAlign=top;
-  fillColor=#E3F2FD;strokeColor=#1565C0;strokeWidth=1;
+  fillColor=#fff;strokeColor=#333;strokeWidth=1;
 " vertex="1" parent="1">
   <mxGeometry x="200" y="100"
     width="{max(最长行字符数×8 + 20, 160)}"
@@ -778,7 +799,7 @@ Extend UC 与基UC垂直相邻：
   shape=table;startSize=30;container=1;collapsible=0;
   childLayout=tableLayout;fixedRows=1;rowLines=0;
   fontStyle=1;align=left;verticalAlign=top;
-  fillColor=#fafafa;strokeColor=#ddd;fontColor=#444;
+  fillColor=#fff;strokeColor=#ccc;fontColor=#333;
 " vertex="1" parent="1">
   <mxGeometry x="1140" y="40"
     width="200"
